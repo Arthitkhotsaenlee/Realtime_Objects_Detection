@@ -4,10 +4,8 @@ import numpy as np
 thres = 0.5
 
 cap = cv2.VideoCapture(0)
-cap.set(3,640)
-cap.set(4,480)
-# img = cv2.imread("istockphoto-1320018473-170667a.jpg")
-# img = cv2.imread("car.png")
+cap.set(3,1280)
+cap.set(4,720)
 
 className =[]
 classpath = "label.txt"
@@ -27,7 +25,7 @@ if __name__ == "__main__":
 
     while True:
         success, img = cap.read()
-        (classIds, confs, bbox) = model.detect(img,confThreshold=thres)
+        (classIds, confs, bbox) = model.detect(img, confThreshold=thres)
         print(classIds,confs,bbox)
 
         if len(classIds) != 0 and np.all(np.array(classIds) < 81):
