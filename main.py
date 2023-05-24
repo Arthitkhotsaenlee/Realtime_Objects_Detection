@@ -30,8 +30,7 @@ if __name__ == "__main__":
 
         if len(classIds) != 0 and np.all(np.array(classIds) < 81):
             for classId, conf, box in zip(classIds.flatten(), confs.flatten(), bbox):
-                cv2.rectangle(img,box,color=(0,255,0))
-
+                cv2.rectangle(img,box,color=(0,255,0),thickness=10)
                 cv2.putText(img,className[classId-1],(box[0]+10,box[1]+30),cv2.FONT_HERSHEY_COMPLEX,1,(0,0,255),2)
                 cv2.putText(img, str(np.round(conf*100)), (box[2], box[3]), cv2.FONT_HERSHEY_COMPLEX, 1,
                             (0, 0, 255), 2)
